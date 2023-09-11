@@ -22,6 +22,10 @@ textarea{
     footer a:hover {
         text-decoration: underline;
     }
+    ul li .flink:hover{
+        color: #FE5B29;
+        transition:.8s;
+    }
 </style>
 <div class="footer_section layout_padding">
    <div class="container">
@@ -38,22 +42,27 @@ textarea{
                   <div class="subscribe_bt"><a href="#">Subscribe</a></div>
                </div>
             </div>
-            <div class="col">
-               <h4 class="footer_taital">Information</h4>
-               <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority
-               </p>
+            <div class="col ml-5 pl-5 fs-6">
+               <h4 class="footer_taital">Quick Links</h4>
+               <ul class="text-light">
+                  <li class="nav-item">
+                     <a class="nav-link flink" href="index.php">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link flink" href="about.php">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link flink" href="services.php">Services</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link flink" href="gallery.php">Vehicles</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link flink" href="contact.php">Contact</a>
+                  </li>
+               </ul>
             </div>
-            <div class="col">
-               <h4 class="footer_taital">Helpful Links</h4>
-               <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority
-               </p>
-            </div>
-            <div class="col">
-               <h4 class="footer_taital">Invesments</h4>
-               <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority
-               </p>
-            </div>
-            <div class="col">
+            <div class="col" style="line-height:3.2em">
                <h4 class="footer_taital">Contact Us</h4>
                <div class="location_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
                         class="padding_left_15">Location</span></a></div>
@@ -86,6 +95,10 @@ textarea{
    </div>
 </div>
 <script>
+   let loading = document.querySelector(".loader");
+   window.addEventListener("load", function () {
+      loading.style.display = "none";
+   })
    const currentYear = new Date().getFullYear();
    document.getElementById("currentYear").textContent = currentYear;
 </script>
@@ -93,11 +106,12 @@ textarea{
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<!-- <script src="js/bootstrap.bundle.min.js"></script> -->
 <script src="js/jquery-3.0.0.min.js"></script>
 <script src="js/plugin.js"></script>
 <!-- sidebar -->
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/owl.carousel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

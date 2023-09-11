@@ -1,5 +1,5 @@
 <?php include 'include/header.php'; ?>
-<?php include 'config.php';?>
+<?php include 'config.php'; ?>
 <?php
 $db = new DBConnection();
 $con = $db->con;
@@ -11,7 +11,8 @@ if (isset($_POST['edit'])) {
     $title = $_POST['title'];
     $price = $_POST['price'];
     $feature = $_POST['feature'];
-    $status = $_POST['status'];
+    $is_active = $_POST['is_active'];
+    $is_featured = $_POST['is_featured'];
 
     // Initialize an array to hold image names
     $imageNames = [];
@@ -32,6 +33,8 @@ if (isset($_POST['edit'])) {
     $updateQuery .= "`brand`='$title', ";
     $updateQuery .= "`daily_rental`='$price', ";
     $updateQuery .= "`features`='$feature', ";
+    $updateQuery .= "`is_active`='$is_active', ";
+    $updateQuery .= "`is_featured`='$is_featured', ";
 
     // Update image paths if provided
     for ($i = 1; $i <= 6; $i++) {
@@ -41,7 +44,7 @@ if (isset($_POST['edit'])) {
         }
     }
 
-    $updateQuery .= "`availability`='$status' ";
+    $updateQuery .= "`is_active`='$is_active' ";
     $updateQuery .= "WHERE `id`='$id'";
 
     $result = mysqli_query($con, $updateQuery);
@@ -85,7 +88,8 @@ if (isset($_GET['id'])) {
             <p class="alert alert-danger">* Important Please Do Not Remove Below Content
                 Only Change <b>Yes</b> Or <b>No</b> or Details and Do Not Add More Details
             </p>
-            <textarea class="tinymce form-control" name="feature" rows="10" cols="35"><?= $car['features']; ?></textarea>
+            <textarea class="tinymce form-control" name="feature" rows="10"
+                cols="35"><?= $car['features']; ?></textarea>
 
 
         </div>
@@ -120,11 +124,10 @@ if (isset($_GET['id'])) {
             </div>
             <div class="col-xl-12">
                 <div class="form-group row">
-                    <label class="col-form-label">Check Availability</label>
-                    <select class="form-control" required name="status">
-                        <option value="">Select Status</option>
-                        <option value="available">Available</option>
-                        <option value="sold out">Booked Out</option>
+                    <label class="col-form-label">is featured?</label>
+                    <select name="is_active" class="form-control" style="width:auto;">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
                     </select>
                 </div>
 

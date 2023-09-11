@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../config.php');
 ?>
 <!DOCTYPE html>
@@ -34,7 +35,6 @@ include('../config.php');
 </style>
 
 <body>
-
     <div class="wrapper">
         <div class="title-text">
             <div class="title login">Login Form</div>
@@ -51,7 +51,9 @@ include('../config.php');
                         $result = mysqli_query($con, $sql);
                         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
                         if (mysqli_num_rows($result) > 0) {
-                            header("Location: dashboard.php");
+                            $_SESSION['id'] = $row['id'];
+                            $_SESSION['email'] = $row['email'];
+                            header("Location: dashboard");
                         } else {
                             echo '
                   <script>

@@ -3,26 +3,92 @@ require_once "include/header.php";
 require_once "config.php";
 $query = "SELECT * FROM cars ORDER BY id DESC LIMIT 8";
 $results = mysqli_query($con, $query);
-$count = mysqli_num_rows($results);
-$resultsPerPage = 2; // Number of results per page
-$page = isset($_GET['page']) ? $_GET['page'] : 1; // Get current page number
-
-$offset = ($page - 1) * $resultsPerPage;
-$query = "SELECT * FROM cars LIMIT $offset, $resultsPerPage";
-$results = mysqli_query($con, $query);
-
-$totalResults = mysqli_num_rows(mysqli_query($con, "SELECT * FROM cars"));
-$totalPages = ceil($totalResults / $resultsPerPage);
 ?>
 <style>
+   /* Make the video container full-screen */
+   #video-carousel .video-container video {
+        filter: brightness(0.5); /* Adjust the value (0.7) to your preference */
+    }
+
+    /* Add a shadow effect to the video carousel */
+    #video-carousel {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4); /* Adjust the shadow properties to your preference */
+    }
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio for widescreen videos */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+   .container2 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
    .gallery_section_2.show-all .col-md-4 {
       display: block !important;
    }
+
    .gallery_section_2.show-all .sim {
       display: none;
    }
-</style>
 
+   .image-container {
+      overflow: hidden;
+      /* max-width: 768px; */
+      /* width: 60em; */
+      height: 50em;
+   }
+
+   .image-wrapper {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - (7rem * (var(--per-view) - 6))) / var(--per-view));
+      grid-gap: 2.5rem;
+      position: relative;
+      left: 0;
+      transition: .3s;
+      width: 60em;
+      height: 20em;
+   }
+
+   .image-wrapper>* {
+      /* aspect-ratio: 4 / 4; */
+   }
+
+   .cimg {
+      width: 60em;
+      height: 20em;
+      object-fit: cover;
+      display: block;
+      border-radius: .5rem;
+   }
+   video::-webkit-media-controls {
+    display: none;
+}
+/* .loader{
+   position:fixed;
+   background: #fff url("images/loader1.gif") no-repeat center center;
+   background-size: 35%;
+   height: 100vh;
+   width: 100%;
+   z-index: 100;
+} */
+   /* IMAGE */
+</style>
+<!-- <div class="loader">
+
+</div> -->
 <div class="call_text_main">
    <div class="container">
       <div class="call_taital">
@@ -36,7 +102,68 @@ $totalPages = ceil($totalResults / $resultsPerPage);
    </div>
 </div>
 <!-- banner section start -->
-<div class="banner_section layout_padding">
+<div id="video-carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="images/v1.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="carousel-item active">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="images/v2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="images/v3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <!-- Add more video items as needed -->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#video-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#video-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    <div class="position-absolute top-0 start-0 w-100 h-100">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="text-overlay animate__animated animate__fadeInLeft">
+                    <h1 class="display-4 text-light">Experience the Freedom of Driving</h1>
+                    <p class="lead  text-light">Your dream car is just a click away.</p>
+                    <a href="vehicles" class="btn btn-lg text-light" style="background:#FE5B29">Book Now</a>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <div class="text-overlay animate__animated animate__fadeInRight">
+                    <h2 class="display-5  text-light">Why Choose Us?</h2>
+                    <ul class="list-unstyled text-light">
+                        <li><i class="fas fa-car text-light"></i> Premium Car Selection</li>
+                        <li><i class="fas fa-clock text-light"></i> 24/7 Customer Support</li>
+                        <li><i class="fas fa-route text-light"></i> Explore Exciting Destinations</li>
+                        <li><i class="fas fa-shield-alt text-light"></i> Safety and Reliability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+<!-- <div class="banner_section layout_padding">
    <div class="container">
       <div class="row">
          <div class="col-md-6">
@@ -48,8 +175,8 @@ $totalPages = ceil($totalResults / $resultsPerPage);
                         <p class="banner_text">There are many variations of passages of Lorem Ipsum available, but the
                            majority</p>
                         <div class="btn_main">
-                           <div class="contact_bt"><a href="about.php">Read More</a></div>
-                           <div class="contact_bt active"><a href="contact.php">Contact Us</a></div>
+                           <div class="contact_bt"><a href="about">Read More</a></div>
+                           <div class="contact_bt active"><a href="contact">Contact Us</a></div>
                         </div>
                      </div>
                   </div>
@@ -89,7 +216,7 @@ $totalPages = ceil($totalResults / $resultsPerPage);
          </div>
       </div>
    </div>
-</div>
+</div> -->
 <!-- banner section end -->
 <!-- about section start -->
 <div class="about_section layout_padding">
@@ -170,37 +297,34 @@ $totalPages = ceil($totalResults / $resultsPerPage);
             <h1 class="gallery_taital">Our best offers</h1>
          </div>
       </div>
-      <div class="gallery_section_2">
-         <div class="row">
+      <div class="container2 mt-5">
+         <div class="image-container">
+            <div class="image-wrapper">
             <?php
             while ($row = mysqli_fetch_assoc($results)) {
                ?>
-               <div class="col-md-4">
-                  <div class="gallery_box">
-                     <div class="gallery_img"><img src="admin/property/<?= $row['image']; ?>" style="height:12em;object-fit:cover;"></div>
-                     <h3 class="types_text"><?= $row['brand']; ?></h3>
-                     <p class="looking_text"><?= $row['daily_rental']; ?></p>
+               <div class="gallery_box">
+                  <img
+                  src="admin/property/<?= $row['image']; ?>"
+                  style="object-fit:cover;" alt="" class="cimg">
+                     <h3 class="types_text">
+                        <?= $row['brand']; ?>
+                     </h3>
+                     <p class="looking_text">
+                        <?= $row['daily_rental']; ?>
+                     </p>
                      <div class="read_bt"><a href="singleview.php?car=<?= $row['id']; ?>">Book Now</a></div>
-                  </div>
                </div>
-               
                <?php
             }
             ?>
-<div class="sim mt-5"></div>
+            </div>
          </div>
       </div>
+      
    </div>
 </div>
-<div class="text-center mt-4">
-      <?php if ($page > 1) { ?>
-         <a class="btn btn-primary" href="?page=<?= $page - 1; ?>">Previous</a>
-      <?php } ?>
-      
-      <?php if ($page < $totalPages) { ?>
-         <a class="btn btn-primary" href="?page=<?= $page + 1; ?>">Next</a>
-      <?php } ?>
-   </div>
+
 </div>
 <!-- gallery section end -->
 <!-- choose section start -->
@@ -235,106 +359,47 @@ $totalPages = ceil($totalResults / $resultsPerPage);
 <!-- choose section end -->
 <!-- client section start -->
 <div class="client_section layout_padding">
-   <div class="container">
-      <div id="custom_slider" class="carousel slide" data-ride="carousel">
-         <div class="carousel-inner">
-            <div class="carousel-item active">
-               <div class="row">
-                  <div class="col-md-12">
-                     <h1 class="client_taital">What Says Customers</h1>
-                  </div>
-               </div>
-               <div class="client_section_2">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <div class="client_taital_box">
-                           <div class="client_img"><img src="images/client-img1.png"></div>
-                           <h3 class="moark_text">Hannery</h3>
-                           <p class="client_text">It is a long established fact that a reader will be distracted by the
-                              readable content of a page</p>
+        <div class="container">
+            <div id="custom_slider" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="client_taital">What Says Customers</h1>
+                            </div>
                         </div>
-                        <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="client_taital_box">
-                           <div class="client_img"><img src="images/client-img2.png"></div>
-                           <h3 class="moark_text">Channery</h3>
-                           <p class="client_text">It is a long established fact that a reader will be distracted by the
-                              readable content of a page</p>
+                        <div class="client_section_2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="client_taital_box">
+                                        <div class="client_img"><img src="images/client-img1.png"></div>
+                                        <h3 class="moark_text">Hannery</h3>
+                                        <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                                    </div>
+                                    <div class="quick_icon"><img src="images/quick-icon.png"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="client_taital_box">
+                                        <div class="client_img"><img src="images/client-img2.png"></div>
+                                        <h3 class="moark_text">Channery</h3>
+                                        <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                                    </div>
+                                    <div class="quick_icon"><img src="images/quick-icon.png"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                    <!-- Add more carousel items as needed -->
+                </div>
+                <a class="carousel-control-prev" href="#custom_slider" role="button" data-bs-slide="prev">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                <a class="carousel-control-next" href="#custom_slider" role="button" data-bs-slide="next">
+                    <i class="fa fa-angle-right"></i>
+                </a>
             </div>
-            <div class="carousel-item">
-               <div class="row">
-                  <div class="col-md-12">
-                     <h1 class="client_taital">What Says Customers</h1>
-                  </div>
-               </div>
-               <div class="client_section_2">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <div class="client_taital_box">
-                           <div class="client_img"><img src="images/client-img1.png"></div>
-                           <h3 class="moark_text">Hannery</h3>
-                           <p class="client_text">It is a long established fact that a reader will be distracted by the
-                              readable content of a page</p>
-                        </div>
-                        <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="client_taital_box">
-                           <div class="client_img"><img src="images/client-img2.png"></div>
-                           <h3 class="moark_text">Channery</h3>
-                           <p class="client_text">It is a long established fact that a reader will be distracted by the
-                              readable content of a page</p>
-                        </div>
-                        <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="carousel-item">
-               <div class="row">
-                  <div class="col-md-12">
-                     <h1 class="client_taital">What Says Customers</h1>
-                  </div>
-               </div>
-               <div class="client_section_2">
-                  <div class="row">
-                     <div class="col-md-6">
-                        <div class="client_taital_box">
-                           <div class="client_img"><img src="images/client-img1.png"></div>
-                           <h3 class="moark_text">Hannery</h3>
-                           <p class="client_text">It is a long established fact that a reader will be distracted by the
-                              readable content of a page</p>
-                        </div>
-                        <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                     </div>
-                     <div class="col-md-6">
-                        <div class="client_taital_box">
-                           <div class="client_img"><img src="images/client-img2.png"></div>
-                           <h3 class="moark_text">Channery</h3>
-                           <p class="client_text">It is a long established fact that a reader will be distracted by the
-                              readable content of a page</p>
-                        </div>
-                        <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <a class="carousel-control-prev" href="#custom_slider" role="button" data-slide="prev">
-            <i class="fa fa-angle-left"></i>
-         </a>
-         <a class="carousel-control-next" href="#custom_slider" role="button" data-slide="next">
-            <i class="fa fa-angle-right"></i>
-         </a>
-      </div>
-   </div>
-</div>
+        </div>
+    </div>
 <!-- client section end -->
 <!-- contact section start -->
 <div class="contact_section layout_padding">
@@ -365,8 +430,8 @@ $totalPages = ceil($totalResults / $resultsPerPage);
 <script>
    const showMoreButton = document.querySelector("#showMoreButton");
    const gallerySection2 = document.querySelector(".gallery_section_2");
-   
-   showMoreButton.addEventListener("click", function() {
+
+   showMoreButton.addEventListener("click", function () {
       gallerySection2.classList.toggle("show-all");
       showMoreButton.style.display = "none";
    });
@@ -376,3 +441,46 @@ $totalPages = ceil($totalResults / $resultsPerPage);
 <?php
 require_once "include/footer.php";
 ?>
+<script>
+   $(document).ready(function () {
+      $(".owl-carousel").owlCarousel({
+         items: 4,
+         loop: true,
+         margin: 10,
+         autoplay: true,
+         autoplayTimeout: 1000,
+         autoplayHoverPause: true
+      });
+   });
+   const imageWrapper = document.querySelector('.image-wrapper')
+   const imageItems = document.querySelectorAll('.image-wrapper > *')
+   const imageLength = imageItems.length
+   const perView = 3
+   let totalScroll = 0
+   const delay = 2000
+
+   imageWrapper.style.setProperty('--per-view', perView)
+   for (let i = 0; i < perView; i++) {
+      imageWrapper.insertAdjacentHTML('beforeend', imageItems[i].outerHTML)
+   }
+
+   let autoScroll = setInterval(scrolling, delay)
+
+   function scrolling() {
+      totalScroll++
+      if (totalScroll == imageLength + 1) {
+         clearInterval(autoScroll)
+         totalScroll = 1
+         imageWrapper.style.transition = '0s'
+         imageWrapper.style.left = '0'
+         autoScroll = setInterval(scrolling, delay)
+      }
+      const widthEl = document.querySelector('.image-wrapper > :first-child').offsetWidth + 24
+      imageWrapper.style.left = `-${totalScroll * widthEl}px`
+      imageWrapper.style.transition = '.3s'
+   }
+   
+   $(document).ready(function () {
+        $('#video-carousel').carousel();
+    });
+</script>

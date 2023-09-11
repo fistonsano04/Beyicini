@@ -13,14 +13,15 @@ if (isset($_POST['add'])) {
     $aimage4 = $_FILES['aimage5']['name'];
     $aimage5 = $_FILES['aimage6']['name'];
     $feature = $_POST['feature'];
-    $status = $_POST['status'];
+    $is_featured = $_POST['is_featured'];
+    $is_active = $_POST['is_active'];
 
     $temp_name = $_FILES['aimage']['tmp_name'];
-	$temp_name1 = $_FILES['aimage2']['tmp_name'];
-	$temp_name2 = $_FILES['aimage3']['tmp_name'];
-	$temp_name3 = $_FILES['aimage4']['tmp_name'];
-	$temp_name4 = $_FILES['aimage5']['tmp_name'];
-	$temp_name5 = $_FILES['aimage6']['tmp_name'];
+    $temp_name1 = $_FILES['aimage2']['tmp_name'];
+    $temp_name2 = $_FILES['aimage3']['tmp_name'];
+    $temp_name3 = $_FILES['aimage4']['tmp_name'];
+    $temp_name4 = $_FILES['aimage5']['tmp_name'];
+    $temp_name5 = $_FILES['aimage6']['tmp_name'];
 
     move_uploaded_file($temp_name, "property/$aimage");
     move_uploaded_file($temp_name1, "property/$aimage1");
@@ -29,8 +30,8 @@ if (isset($_POST['add'])) {
     move_uploaded_file($temp_name4, "property/$aimage4");
     move_uploaded_file($temp_name5, "property/$aimage5");
 
-    $sql = "INSERT INTO `cars`(`brand`, `daily_rental`, `features`, `image`, `image2`, `image3`, `image4`, `image5`, `image6`, `availability`) VALUES ('$title','$price','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$aimage5','$status')";
-    
+    $sql = "INSERT INTO `cars`(`brand`, `daily_rental`, `features`, `image`, `image2`, `image3`, `image4`, `image5`, `image6`, `is_active`,`is_featured`) VALUES ('$title','$price','$feature','$aimage','$aimage1','$aimage2','$aimage3','$aimage4','$aimage5','$is_active','$is_featured')";
+
     $result = mysqli_query($con, $sql);
     // echo $result;
     // die();
@@ -291,11 +292,20 @@ $result = mysqli_query($con, $query);
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="form-group row">
-                                            <label class="col-form-label">Check Availability</label>
-                                            <select class="form-control" required name="status">
-                                                <option value="">Select Status</option>
-                                                <option value="available">Available</option>
-                                                <option value="sold out">Booked Out</option>
+                                            <label class="col-form-label">is Active?</label>
+                                            <select name="is_active" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-xl-12">
+                                        <div class="form-group row">
+                                            <label class="col-form-label">is featured?</label>
+                                            <select name="is_featured" class="form-control">
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
                                             </select>
                                         </div>
 
@@ -340,7 +350,7 @@ $result = mysqli_query($con, $query);
                             <?php echo $row['image'] ?>
                         </td>
                         <td>
-                            <?php echo $row['availability'] ?>
+                            <?php echo $row['is_active'] ?>
                         </td>
                         <td>
                             <a class="button inlineIcon edit" href="editcar.php?id=<?php echo $row['id'] ?>"></a>
@@ -355,20 +365,20 @@ $result = mysqli_query($con, $query);
         </table>
     </div>
 </div>
- <script>
+<script>
     tinymce.init({
-      selector: 'textarea',
-      plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-      mergetags_list: [
-        { value: 'First.Name', title: 'First Name' },
-        { value: 'Email', title: 'Email' },
-      ],
-      ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+        selector: 'textarea',
+        plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+        ],
+        ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
     });
-  </script>
+</script>
 </div>
 <!-- /#page-content-wrapper -->
 </div>

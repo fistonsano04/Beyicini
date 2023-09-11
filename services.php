@@ -1,7 +1,7 @@
 <?php 
     require_once "include/header.php";
 ?>
-      <div class="call_text_main">
+      <!-- <div class="call_text_main">
          <div class="container">
             <div class="call_taital">
                <div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="padding_left_15">Location</span></a></div>
@@ -9,36 +9,73 @@
                <div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></div>
             </div>
          </div>
-      </div>
-      <!-- choose section start -->
-      <div class="choose_section layout_padding">
+      </div> -->
+      <!-- gallery section start -->
+      <!-- <div class="gallery_section layout_padding">
          <div class="container">
             <div class="row">
                <div class="col-md-12">
-                  <h1 class="choose_taital">WHY CHOOSE US</h1>
+                  <h1 class="gallery_taital">Our best offers</h1>
                </div>
             </div>
-            <div class="choose_section_2">
+            <div class="gallery_section_2">
                <div class="row">
-                  <div class="col-sm-4">
-                     <div class="icon_1"><img src="images/icon-1.png"></div>
-                     <h4 class="safety_text">SAFETY & SECURITY</h4>
-                     <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have </p>
+                  <div class="col-md-4">
+                     <div class="gallery_box">
+                        <div class="gallery_img"><img src="images/img-1.png"></div>
+                        <h3 class="types_text">Toyota car</h3>
+                          <p class="looking_text">Start per day $4500</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
                   </div>
-                  <div class="col-sm-4">
-                     <div class="icon_1"><img src="images/icon-2.png"></div>
-                     <h4 class="safety_text">Online Booking</h4>
-                     <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have </p>
+                  <div class="col-md-4">
+                     <div class="gallery_box">
+                        <div class="gallery_img"><img src="images/img-2.png"></div>
+                        <h3 class="types_text">Toyota car</h3>
+                          <p class="looking_text">Start per day $4500</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
                   </div>
-                  <div class="col-sm-4">
-                     <div class="icon_1"><img src="images/icon-3.png"></div>
-                     <h4 class="safety_text">Best Drivers</h4>
-                     <p class="ipsum_text">variations of passages of Lorem Ipsum available, but the majority have </p>
+                  <div class="col-md-4">
+                     <div class="gallery_box">
+                        <div class="gallery_img"><img src="images/img-3.png"></div>
+                        <h3 class="types_text">Toyota car</h3>
+                          <p class="looking_text">Start per day $4500</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="gallery_section_2">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="gallery_box">
+                        <div class="gallery_img"><img src="images/img-1.png"></div>
+                        <h3 class="types_text">Toyota car</h3>
+                          <p class="looking_text">Start per day $4500</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="gallery_box">
+                        <div class="gallery_img"><img src="images/img-2.png"></div>
+                        <h3 class="types_text">Toyota car</h3>
+                          <p class="looking_text">Start per day $4500</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="gallery_box">
+                        <div class="gallery_img"><img src="images/img-3.png"></div>
+                        <h3 class="types_text">Toyota car</h3>
+                          <p class="looking_text">Start per day $4500</p>
+                        <div class="read_bt"><a href="#">Book Now</a></div>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
+      </div> -->
       <?php 
     require_once "include/footer.php";
 ?>

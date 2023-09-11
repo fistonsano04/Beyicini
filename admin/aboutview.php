@@ -15,11 +15,11 @@ if (isset($_POST['addcontent'])) {
     // Handle uploaded image
     $aimage = $_FILES['aimage']['name'];
     $temp_name = $_FILES['aimage']['tmp_name'];
-    $image_path = "property/" . $aimage;
+    $image_path = "uploads/" . $aimage;
     
     if (move_uploaded_file($temp_name, $image_path)) {
-        $sql = "INSERT INTO `about_page`(`title`, `image`, `content`) VALUES ('$title','$aimage','$content')";
-        $result = mysqli_query($con, $sql);
+        $sql = "INSERT INTO `about_page`(`title`, `banner`, `content`) VALUES ('$title','$aimage','$content')";
+        $result = $db->con->query($sql);
 
         if ($result) {
             $msg = "<p class='alert alert-success'>Content Inserted Successfully</p>";

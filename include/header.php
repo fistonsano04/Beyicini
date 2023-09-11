@@ -14,17 +14,23 @@
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css" integrity="sha512-s6khMl5GDS1HbQ5/SwL1wzMayPwHXPjKoBN5kHUTDqKEPkkGyEZWKyH2lQ3YO2q3dxueG3rE0NHjRawMHd2b6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.css"
+      integrity="sha512-s6khMl5GDS1HbQ5/SwL1wzMayPwHXPjKoBN5kHUTDqKEPkkGyEZWKyH2lQ3YO2q3dxueG3rE0NHjRawMHd2b6g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
    <!-- bootstrap css -->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
    <!-- style css -->
    <link rel="stylesheet" type="text/css" href="css/style.css">
    <!-- Responsive-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <link rel="stylesheet" href="css/responsive.css">
    <!-- fevicon -->
    <link rel="icon" href="images/lo.png" />
    <!-- font css -->
+   <link rel="stylesheet" href="css/owl.carousel.min.css">
+   <link rel="stylesheet" href="css/owl.theme.default.min.css">
    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap"
       rel="stylesheet">
@@ -34,20 +40,32 @@
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 </head>
 <style>
-   .loginbtn a{
-      color:#fff;
+   .loginbtn a {
+      color: #fff;
    }
-   .loginbtn{
-      border: 1px solid #fe5b29; 
-      background:transparent;color:#fff;
-   }
-      .loginbtn:hover {
-         background-color: #fe5b29;
 
-      }
-   </style>
+   .loginbtn {
+      border: 1px solid #fe5b29;
+      background: transparent;
+      color: #fff;
+   }
+
+   .loginbtn:hover {
+      background-color: #fe5b29;
+
+   }
+   .loader {
+      position: fixed;
+      background: #fff url("images/loader1.gif") no-repeat center center;
+      background-size: 35%;
+      height: 100vh;
+      width: 100%;
+      z-index: 100;
+   }
+</style>
+
 <body>
-   
+<div class="loader"></div>
    <!-- header section start -->
    <div class="header_section">
       <div class="container">
@@ -61,23 +79,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
-                     <a class="nav-link" href="index.php">Home</a>
+                     <a class="nav-link" href="index">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="about.php">About</a>
+                     <a class="nav-link" href="about">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="services.php">Services</a>
+                     <a class="nav-link" href="vehicles">Vehicles</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="gallery.php">Vehicles</a>
+                     <a class="nav-link" href="services">Services</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="contact.php">Contact</a>
-                  </li>
+                     <a class="nav-link" href="contact">Contact</a>
+                  </li> 
                </ul>
                <div class="btn">
-                  <button type="button" class="btn btn-outline loginbtn"><a href="login.php">Login</a></button>
+                  <button type="button" class="btn btn-outline loginbtn"><a href="login">Login</a></button>
                </div>
                <form class="form-inline my-2 my-lg-0">
                </form>

@@ -1,3 +1,5 @@
+<?php include('session.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,27 +29,28 @@
                 <div class="" id="sidebar-wrapper" style="background:#FE5B29">
                         <div
                                 class="sidebar-heading text-center py-4 text-light fs-4 fw-bold text-uppercase border-bottom">
-                                <i class="fas fa-user-secret me-2 text-light"></i>PICLAND</div>
+                                <i class="fas fa-user-secret me-2 text-light"></i>PICLAND
+                        </div>
                         <div class="list-group list-group-flush my-3">
-                                <a href="dashboard.php"
+                                <a href="dashboard"
                                         class="list-group-item list-group-item-action bg-transparent text-light active"><i
                                                 class="fas fa-tachometer-alt me-2 text-light"></i>Dashboard</a>
-                                <a href="cars.php"
+                                <a href="cars"
                                         class="list-group-item list-group-item-action bg-transparent text-light fw-bold"><i
                                                 class="fas fa-project-diagram me-2 text-light"></i>Cars</a>
-                                                <a href="aboutview.php"
+                                <a href="aboutview"
                                         class="list-group-item list-group-item-action bg-transparent text-light fw-bold"><i
-                                                class="fas fa-project-diagram me-2 text-light"></i>about us</a>   
-                                <a href="bookings.php"
+                                                class="fas fa-project-diagram me-2 text-light"></i>about us</a>
+                                <a href="bookings"
                                         class="list-group-item list-group-item-action bg-transparent text-light fw-bold"><i
                                                 class="fas fa-chart-line me-2 text-light"></i>Bookings</a>
-                                <a href="users.php"
+                                <a href="users"
                                         class="list-group-item list-group-item-action bg-transparent text-light fw-bold"><i
                                                 class="fas fa-paperclip me-2 text-light"></i>Users</a>
-                                <a href="feedback.php"
+                                <a href="feedback"
                                         class="list-group-item list-group-item-action bg-transparent text-light fw-bold"><i
                                                 class="fas fa-shopping-cart me-2 text-light"></i>Feedbacks</a>
-                                <a href="#"
+                                <a href="logout"
                                         class="list-group-item list-group-item-action bg-transparent text-dark fw-bold"><i
                                                 class="fas fa-power-off me-2 text-dark"></i>Logout</a>
                         </div>
